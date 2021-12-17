@@ -1,0 +1,25 @@
+{
+  "name": "syook_task",
+  "version": "1.0.0",
+  "description": "Tech task given by Syook",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yvmatts/syook_task.git"
+  },
+  "author": "yvmatts",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yvmatts/syook_task/issues"
+  },
+  "homepage": "https://github.com/yvmatts/syook_task#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.2"
+  }
+}
