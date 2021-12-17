@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const itemRoutes = require('./routes/itemRoutes')
+const deliveryRoutes = require('./routes/deliveryRoutes')
 const cookieParser = require('cookie-parser')
 const conf = require('./conf')
 const cors = require('cors')
@@ -21,3 +22,4 @@ mongoose.connect(conf.dbURI)
   .catch((err) => console.log(err))
 
 app.use('/item',itemRoutes)
+app.use('/delivery', deliveryRoutes)
