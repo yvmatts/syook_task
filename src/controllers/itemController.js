@@ -1,13 +1,13 @@
 const itemModel = require('../models/items')
 
 module.exports.create_item = async (req,res) => {
-  try{
+   try{
     const {name, price} = req.body
     const itemCheck = await itemModel.findOne({name})
     if(itemCheck) {
       res.status(409).json({message: 'Item already present'})
     } else {
-      const item = await itemModel.create({name, price})
+      const item = await itemModel.create({name: name, price:price})
       res.status(201).json({message: 'Item created'})
     }
   } catch (e) {

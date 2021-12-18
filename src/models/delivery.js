@@ -4,19 +4,15 @@ const deliverySchema = new mongoose.Schema({
     regNo: {
       type: String,
       unique: true,
-      required: true,
-      match: '/^[0-9A-Za-z]+$/gm'
+      required: true
     },
     vehicleType: {
       type: String,
-      enum: {
-        ['BIKE', 'TRUCK'],
-        message: 'Type must be either Bike or Truck'
-      },
+      enum: ['BIKE', 'TRUCK'],
       required: true
     },
     city: {
-      type: [Number],
+      type: String,
       required: true
     },
     activeOrdersCount: {

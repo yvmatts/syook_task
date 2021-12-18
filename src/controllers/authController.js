@@ -3,8 +3,8 @@ const customerModel = require('../models/customer')
 const conf = require('../conf')
 
 const maxAge = 3 * 60 * 60
-const createToken = (cName) => {
-  return jwt.sign({"name":cName }, conf.secretKey, {
+const createToken = (id, city) => {
+  return jwt.sign({"id":id, "city": city }, conf.secretKey, {
     expiresIn: maxAge
   })
 }
@@ -12,11 +12,11 @@ const createToken = (cName) => {
 module.exports.login = async (req, res) => {
   try {
     const {cName, cCity} = req.body
-    const customerCheck = await customerModel.findOne({cName})
-    if(!customerCheck) {
-      const customer = await customerModel.create({name:cName, city: cCity})
+    const customer = await customerModel.findOne({cName})
+    if(!customer) {
+      customer = await customerModel.create({name:cName, city: cCity})
     }
-    const token = createToken(cName)
+    const token = createToken(customer._id, customer.city)
     res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
     res.status(201).json({message: 'Authentication done'})
   } catch (e) {
