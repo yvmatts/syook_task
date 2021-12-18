@@ -11,7 +11,7 @@ module.exports.create_item = async (req,res) => {
       res.status(201).json({message: 'Item created'})
     }
   } catch (e) {
-    res.status(403).send('Error')
+    res.status(403).json({message: 'Unable to create item'})
   }
 }
 
@@ -25,7 +25,7 @@ module.exports.read_item = async (req, res) => {
         res.status(404).json({message: 'Item not found'})
     }
   } catch(e) {
-      res.status(404).send('Error')
+      res.status(404).json({message: 'Unable to search for item'})
   }
 }
 
@@ -42,6 +42,6 @@ module.exports.update_item = async (req, res) => {
       res.status(404).json({message: 'Item not found'})
     }
   } catch(e) {
-      res.status(404).send('Error')
+      res.status(404).json({message: 'Unable to update item'})
   }
 }

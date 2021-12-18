@@ -33,7 +33,7 @@ module.exports.create_order = async (req,res) => {
           res.status(201).json({message: 'Order created'})
         }
     } catch (e) {
-      res.status(404).send(e)
+      res.status(404).json({message: e})
     }
 }
 

@@ -11,7 +11,7 @@ module.exports.create_delivery = async (req, res) => {
       res.status(201).json({message: 'Delivery created'})
     }
   } catch (e) {
-    res.status(403).send('Error')
+    res.status(403).json({message: 'Unable to create delivery'})
   }
 }
 
@@ -25,7 +25,7 @@ module.exports.read_delivery = async (req, res) => {
         res.status(404).json({message: 'Delivery not found'})
     }
   } catch(e) {
-      res.status(404).send('Error')
+      res.status(404).json({message: 'Unable to get delivery'})
   }
 }
 
@@ -43,6 +43,6 @@ module.exports.update_delivery = async (req, res) => {
       res.status(404).json({message: 'Delivery not found'})
     }
   } catch(e) {
-      res.status(404).send(e)
+      res.status(404).json({message: 'Unable to update delivery'})
   }
 }
