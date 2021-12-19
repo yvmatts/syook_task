@@ -13,9 +13,9 @@ int main()
     cin>>b;
 
     char op[n];
-    int lc = 0;
+    int lc = 0; //max_limiter
     int flag = 1;
-    int limit = k;
+    int limit = k; //selection_limiter
     int index = 0;
 
     if(g >= b) {
